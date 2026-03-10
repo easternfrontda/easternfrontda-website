@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eastern Front Defense Academy | Combat-Proven Firearms Training | Fort Wayne, IN</title>
+    <meta name="description" content="Eastern Front Defense Academy offers combat-proven firearms training in Fort Wayne, Indiana. Combat veteran with 13 years of experience including Ukraine operations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #002030;
+            --red: #DC143C;
+            --gold: #FFD700;
+            --steel: #B8BDC1;
+            --dark-gray: #5a5a5a;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        .top-bar {
+            background: #1a1a1a;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .login-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--white);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .logo-nav {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 20px 0 15px;
+        }
+
+        .logo-nav img {
+            max-width: 280px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .main-menu {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            padding: 25px 0;
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .main-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .main-menu a:hover,
+        .main-menu a.active {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://www.genspark.ai/api/files/s/7H2UfCga?w=1920&q=95') center center/cover no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background-attachment: scroll;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-logo {
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--white);
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            color: var(--white);
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* SERVICES SECTION */
+        .services-section {
+            background: var(--light-gray);
+            padding: 100px 40px;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .service-card {
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .learn-more {
+            color: var(--navy);
+            text-decoration: none;
+            border-bottom: 1px solid var(--navy);
+            padding-bottom: 2px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .learn-more:hover {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .content-grid.reverse {
+            grid-template-columns: 1fr 300px;
+        }
+
+        .content-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .content-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            color: var(--navy);
+        }
+
+        .content-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .content-column h4 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .content-column p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content-button {
+            display: inline-block;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            padding: 15px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .content-button:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        /* COURSE GRID */
+        .courses-section {
+            background: var(--dark-gray);
+            padding: 80px 40px;
+        }
+
+        .courses-section h2 {
+            text-align: center;
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .course-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .course-item {
+            text-align: center;
+        }
+
+        .course-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .course-item h4 {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* EMAIL SIGNUP */
+        .email-section {
+            background: var(--navy);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .email-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 14px;
+        }
+
+        .email-submit {
+            padding: 18px 40px;
+            background: var(--white);
+            color: var(--navy);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .email-submit:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: var(--steel);
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        footer img {
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--steel);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.7;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-grid,
+            .content-grid.reverse {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .content-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .main-menu {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="https://instagram.com/EasternFrontDefenseAcademy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/EasternFrontDefenseAcademy" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="top-right">
+            <a href="book.html" class="cta-button">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Logo & Navigation -->
+    <div class="logo-nav">
+        <img src="https://www.genspark.ai/api/files/s/WBTorAVg" alt="Eastern Front Defense Academy">
+    </div>
+    <ul class="main-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">COMBAT-PROVEN. CIVILIAN-READY.</h1>
+            <p class="hero-subtitle">Fort Wayne's premier firearms training academy — instruction forged in real-world combat experience</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-label">TRAINING PROGRAMS</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>PISTOL TRAINING</h3>
+                <p>Master defensive handgun skills from beginner fundamentals to advanced tactical techniques. Combat-tested instruction for real-world defense.</p>
+                <a href="courses.html#pistol" class="learn-more">Learn more</a>
+            </div>
+            <div class="service-card">
+                <h3>RIFLE TRAINING</h3>
+                <p>AR-15 platform training from safety basics to CQB and tactical movement. Skills validated in Ukraine's modern combat zones.</p>
+                <a href="courses.html#rifle" class="learn-more">Learn more</a>
+            </div>
+            <div class="service-card">
+                <h3>SPECIALTY COURSES</h3>
+                <p>Home defense strategies, tactical medical training, and situational awareness. Integrated skills for complete preparedness.</p>
+                <a href="courses.html#specialty" class="learn-more">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combat Experience Section -->
+    <section class="content-section">
+        <div class="content-grid">
+            <img src="https://www.genspark.ai/api/files/s/josIeEcZ?cache_control=3600" alt="Matthew Stanley" class="content-image" style="object-fit: cover; object-position: top center; height: 500px;">
+            <div class="content-text">
+                <div class="section-tag">COMBAT VETERAN INSTRUCTION</div>
+                <h2 class="content-title">TRAINING FROM SOMEONE WHO'S BEEN THERE</h2>
+                <div class="content-columns">
+                    <div class="content-column">
+                        <h4>Real Combat Experience</h4>
+                        <p>13 years of operational experience including Army National Guard infantry, NATO contracting, and combat operations in Ukraine (2022-2025). Trained 10,000+ soldiers, civilians, and law enforcement personnel.</p>
+                    </div>
+                    <div class="content-column">
+                        <h4>Combat-Tested Skills</h4>
+                        <p>Techniques validated in assault operations, urban combat, and defensive scenarios. Not theory—skills that work when it matters most.</p>
+                    </div>
+                </div>
+                <a href="about.html" class="content-button">Meet Your Instructor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="content-section" style="background: var(--light-gray);">
+        <div class="content-grid reverse">
+            <div class="content-text">
+                <div class="section-tag">WHY CHOOSE EFDA</div>
+                <h2 class="content-title">MORE THAN JUST RANGE TIME</h2>
+                <div class="content-columns">
+                    <div class="content-column">
+                        <h4>Small Class Sizes</h4>
+                        <p>Personalized instruction with maximum 8 students per class. Individual attention ensures you master each technique.</p>
+                    </div>
+                    <div class="content-column">
+                        <h4>Progressive Curriculum</h4>
+                        <p>Structured courses from beginner to advanced. Build confidence and competence through proven training progressions.</p>
+                    </div>
+                </div>
+                <a href="courses.html" class="content-button">View All Courses</a>
+            </div>
+            <img src="https://www.genspark.ai/api/files/s/Np1NTL4q?w=800&q=95" alt="Training" class="content-image">
+        </div>
+    </section>
+
+    <!-- Course Preview Grid -->
+    <section class="courses-section">
+        <h2>FEATURED COURSES</h2>
+        <div class="course-grid">
+            <div class="course-item">
+                <img src="https://www.genspark.ai/api/files/s/RDv76VUp?w=600&h=400&fit=cover&q=95" alt="Pistol Safety">
+                <h4>Pistol Safety & Fundamentals</h4>
+            </div>
+            <div class="course-item">
+                <img src="https://www.genspark.ai/api/files/s/lwUng4Nc?w=600&h=400&fit=cover&q=95" alt="Defensive Pistol">
+                <h4>Defensive Pistol Techniques</h4>
+            </div>
+            <div class="course-item">
+                <img src="https://www.genspark.ai/api/files/s/oMofo0vw?w=600&h=400&fit=cover&q=95" alt="Rifle Training">
+                <h4>Rifle Safety & Fundamentals</h4>
+            </div>
+            <div class="course-item">
+                <img src="https://www.genspark.ai/api/files/s/iKEjgRwV?w=600&h=400&fit=cover&q=95" alt="Tactical Rifle">
+                <h4>Tactical Rifle & Movement</h4>
+            </div>
+            <div class="course-item">
+                <img src="https://www.genspark.ai/api/files/s/cWWijPfA?w=600&h=400&fit=cover&q=95" alt="Home Defense">
+                <h4>Home Defense Strategies</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup -->
+    <section class="email-section">
+        <h3>STAY INFORMED</h3>
+        <p style="color: var(--steel); margin-bottom: 30px;">Get course updates, training tips, and special offers</p>
+        <form class="email-form" action="#" method="post">
+            <input type="email" class="email-input" placeholder="Email Address" required>
+            <button type="submit" class="email-submit">Sign Up</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://www.genspark.ai/api/files/s/5ZAo938w" alt="EFDA Logo">
+        <p class="footer-tagline">Combat-Proven. Civilian-Ready.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="blog.html">Blog</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-conditions.html">Terms</a>
+        </div>
+        <p class="copyright">&copy; 2025 Eastern Front Defense Academy LLC. All rights reserved.<br>
+        Fort Wayne, Indiana | (260) 209-4178 | info@easternfrontda.com</p>
+    </footer>
+</body>
+</html>

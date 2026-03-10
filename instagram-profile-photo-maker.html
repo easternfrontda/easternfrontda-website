@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile Photo - EFDA Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #002030;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .canvas-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .preview-box {
+            text-align: center;
+        }
+        .preview-box h3 {
+            margin-bottom: 15px;
+            color: #002030;
+            font-size: 16px;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+        .circle-preview {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+        }
+        .controls {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .control-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #002030;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #DC143C;
+            cursor: pointer;
+        }
+        input[type="color"] {
+            width: 100%;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .value-display {
+            display: inline-block;
+            background: #DC143C;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        button {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-download {
+            background: #DC143C;
+            color: white;
+        }
+        .btn-download:hover {
+            background: #b01030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+        .btn-reset {
+            background: #002030;
+            color: white;
+        }
+        .btn-reset:hover {
+            background: #001520;
+        }
+        .instructions {
+            background: #e8f4f8;
+            border-left: 4px solid #DC143C;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .instructions h4 {
+            color: #002030;
+            margin-bottom: 10px;
+        }
+        .instructions ol {
+            margin-left: 20px;
+            color: #333;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        .presets {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .preset-btn {
+            padding: 8px 15px;
+            background: #002030;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .preset-btn:hover {
+            background: #003040;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Instagram Profile Photo Creator</h1>
+        <p class="subtitle">Eastern Front Defense Academy - Perfect Instagram Size</p>
+
+        <div class="instructions">
+            <h4>✅ Quick Instructions:</h4>
+            <ol>
+                <li><strong>Adjust the size slider</strong> until your logo fits perfectly in the circle preview</li>
+                <li><strong>Change background color</strong> if desired (Navy, White, or Black)</li>
+                <li><strong>Click "Download for Instagram"</strong> - that's it!</li>
+            </ol>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>
+                    Logo Size: 
+                    <span class="value-display" id="sizeValue">70%</span>
+                </label>
+                <input type="range" id="logoSize" min="50" max="85" value="70" step="1">
+                <div class="presets">
+                    <button class="preset-btn" onclick="setSize(65)">Smaller</button>
+                    <button class="preset-btn" onclick="setSize(70)">Default</button>
+                    <button class="preset-btn" onclick="setSize(75)">Larger</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="bgColor">Background Color:</label>
+                <input type="color" id="bgColor" value="#2a2a2a">
+                <div class="presets">
+                    <button class="preset-btn" onclick="setBgColor('#002030')">Navy</button>
+                    <button class="preset-btn" onclick="setBgColor('#FFFFFF')">White</button>
+                    <button class="preset-btn" onclick="setBgColor('#2a2a2a')">Dark Gray</button>
+                    <button class="preset-btn" onclick="setBgColor('#000000')">Black</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <div class="preview-box">
+                <h3>📱 Instagram Preview (Circle Crop)</h3>
+                <div class="circle-preview">
+                    <canvas id="circleCanvas" width="300" height="300"></canvas>
+                </div>
+                <p style="color: #666; font-size: 12px; margin-top: 10px;">This is exactly how it will look on Instagram</p>
+            </div>
+
+            <div class="preview-box">
+                <h3>📐 Full Image (1080x1080)</h3>
+                <canvas id="fullCanvas" width="300" height="300"></canvas>
+                <p style="color: #666; font-size: 12px; margin-top: 10px;">This is what you'll upload</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-download" onclick="downloadImage()">
+                📥 Download for Instagram (1080x1080)
+            </button>
+            <button class="btn-reset" onclick="resetSettings()">
+                🔄 Reset to Default
+            </button>
+        </div>
+
+        <div class="success" id="successMsg">
+            ✅ Perfect! Your image is downloaded. Now upload it to Instagram!
+        </div>
+    </div>
+
+    <!-- Hidden canvas for full resolution export -->
+    <canvas id="exportCanvas" width="1080" height="1080" style="display: none;"></canvas>
+
+    <script>
+        const logo = new Image();
+        logo.crossOrigin = "anonymous";
+        logo.src = 'https://www.genspark.ai/api/files/s/EQbR6C91';
+
+        let logoSize = 70;
+        let bgColor = '#2a2a2a';
+
+        logo.onload = function() {
+            updatePreview();
+        };
+
+        function updatePreview() {
+            // Update circle preview
+            const circleCanvas = document.getElementById('circleCanvas');
+            const circleCtx = circleCanvas.getContext('2d');
+            
+            // Clear and draw background
+            circleCtx.fillStyle = bgColor;
+            circleCtx.fillRect(0, 0, 300, 300);
+
+            // Calculate logo dimensions
+            const scale = logoSize / 100;
+            const logoWidth = 300 * scale;
+            const logoHeight = (logo.height / logo.width) * logoWidth;
+            const x = (300 - logoWidth) / 2;
+            const y = (300 - logoHeight) / 2;
+
+            // Draw logo
+            circleCtx.drawImage(logo, x, y, logoWidth, logoHeight);
+
+            // Update full preview
+            const fullCanvas = document.getElementById('fullCanvas');
+            const fullCtx = fullCanvas.getContext('2d');
+            
+            fullCtx.fillStyle = bgColor;
+            fullCtx.fillRect(0, 0, 300, 300);
+            fullCtx.drawImage(logo, x, y, logoWidth, logoHeight);
+
+            // Draw circle guide on full preview
+            fullCtx.strokeStyle = 'rgba(220, 20, 60, 0.5)';
+            fullCtx.lineWidth = 2;
+            fullCtx.setLineDash([5, 5]);
+            fullCtx.beginPath();
+            fullCtx.arc(150, 150, 148, 0, Math.PI * 2);
+            fullCtx.stroke();
+            fullCtx.setLineDash([]);
+        }
+
+        function setSize(size) {
+            logoSize = size;
+            document.getElementById('logoSize').value = size;
+            document.getElementById('sizeValue').textContent = size + '%';
+            updatePreview();
+        }
+
+        function setBgColor(color) {
+            bgColor = color;
+            document.getElementById('bgColor').value = color;
+            updatePreview();
+        }
+
+        document.getElementById('logoSize').addEventListener('input', function(e) {
+            logoSize = parseInt(e.target.value);
+            document.getElementById('sizeValue').textContent = logoSize + '%';
+            updatePreview();
+        });
+
+        document.getElementById('bgColor').addEventListener('input', function(e) {
+            bgColor = e.target.value;
+            updatePreview();
+        });
+
+        function downloadImage() {
+            const exportCanvas = document.getElementById('exportCanvas');
+            const ctx = exportCanvas.getContext('2d');
+
+            // Draw background at full resolution (1080x1080)
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, 1080, 1080);
+
+            // Calculate logo dimensions at full resolution
+            const scale = logoSize / 100;
+            const logoWidth = 1080 * scale;
+            const logoHeight = (logo.height / logo.width) * logoWidth;
+            const x = (1080 - logoWidth) / 2;
+            const y = (1080 - logoHeight) / 2;
+
+            // Draw logo at full resolution
+            ctx.drawImage(logo, x, y, logoWidth, logoHeight);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = 'EFDA-Instagram-Profile-1080x1080.png';
+            link.href = exportCanvas.toDataURL('image/png', 1.0);
+            link.click();
+
+            // Show success message
+            const successMsg = document.getElementById('successMsg');
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+
+        function resetSettings() {
+            logoSize = 70;
+            bgColor = '#2a2a2a';
+            document.getElementById('logoSize').value = 70;
+            document.getElementById('bgColor').value = '#2a2a2a';
+            document.getElementById('sizeValue').textContent = '70%';
+            updatePreview();
+        }
+    </script>
+</body>
+</html>
